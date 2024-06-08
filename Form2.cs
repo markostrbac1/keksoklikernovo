@@ -22,12 +22,15 @@ namespace keksoklikernovo
             StreamReader sr = new StreamReader("nivo.txt", true);
             string tpnivo = sr.ReadLine();
             nivo = int.Parse(tpnivo);
+            sr.Close();
             StreamReader sr2 = new StreamReader("bodovi.txt", true);
             string tpbodovi = sr2.ReadLine();
             bodovi = int.Parse(tpbodovi);
+            sr2.Close();
             StreamReader sr3 = new StreamReader("pekar.txt", true);
             string tppekar = sr3.ReadLine();
             pekar = int.Parse(tppekar);
+            sr3.Close();
             if (nivo == 1)
             {
                 keks.Load("KEKSOKLIKERTEMPLATE.png");
@@ -141,6 +144,10 @@ namespace keksoklikernovo
 
         private void buttontrgovina_Click(object sender, EventArgs e)
         {
+            File.WriteAllText(@"bodovi.txt", "");
+            StreamWriter sw = new StreamWriter("bodovi.txt", true);
+            sw.WriteLine(bodovi);
+            sw.Close();
             Form3 Trgovina = new Form3();
             Trgovina.ShowDialog();
         }
