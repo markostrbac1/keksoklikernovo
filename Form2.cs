@@ -15,7 +15,8 @@ namespace keksoklikernovo
         int nivo;
         int pekar;
         int bodovi;
-
+        Random r = new Random();
+        
         public Form2()
         {
             InitializeComponent();
@@ -248,6 +249,15 @@ namespace keksoklikernovo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            int rInt = r.Next(0, 300);
+            if (rInt == 3)
+            {
+                 
+                Form4 zlato = new Form4();
+                zlato.ShowDialog();
+                
+            }
+
             if (pekar == 1)
             {
                 bodovi++;
@@ -272,6 +282,7 @@ namespace keksoklikernovo
             {
 
             }
+
         }
 
         private void buttonSPREMI_Click(object sender, EventArgs e)
