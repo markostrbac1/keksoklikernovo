@@ -31,6 +31,7 @@ namespace keksoklikernovo
             string tppekar = sr3.ReadLine();
             pekar = int.Parse(tppekar);
             sr3.Close();
+            labelbodovi.Text = bodovi.ToString();
             if (nivo == 1)
             {
                 keks.Load("KEKSOKLIKERTEMPLATE.png");
@@ -38,15 +39,15 @@ namespace keksoklikernovo
             }
             if (nivo == 2)
             {
-
+                keks.Load("keksjaffaE.png");
             }
             if (nivo == 3)
             {
-
+                keks.Load("ludikeks.png");
             }
             if (nivo == 4)
             {
-
+                keks.Load("opasnikeks.png");
             }
             if (nivo == 5)
             {
@@ -62,15 +63,15 @@ namespace keksoklikernovo
             }
             if (pekar == 2)
             {
-
+                pbpekar.Load("pekar2.png");
             }
             if (pekar == 3)
             {
-
+                pbpekar.Load("pekar3.png");
             }
             if (pekar == 4)
             {
-
+                pbpekar.Load("pekar4.png");
             }
             if (pekar == 5)
             {
@@ -124,16 +125,106 @@ namespace keksoklikernovo
             {
                 bodovi = bodovi + 5;
                 labelbodovi.Text = bodovi.ToString();
+                if (i > 5)
+                {
+                    i = 0;
+                }
+                if (i < 1)
+                {
+                    keks.Load("keksjaffaE.png");
+                }
+                else if (i < 2)
+                {
+                    keks.Load("keksjaffaugriz1.png");
+
+                }
+                else if (i < 3)
+                {
+                    keks.Load("keksjaffaugriz2.png");
+                }
+                else if (i < 4)
+                {
+                    keks.Load("keksjaffaugriz3.png");
+                }
+                else if (i < 5)
+                {
+                    keks.Load("keksjaffaugriz4.png");
+                }
+                else if (i < 6)
+                {
+                    keks.Load("keksjaffaugriz5.png");
+                }
+                i++;
             }
             if (nivo == 3)
             {
                 bodovi = bodovi + 10;
                 labelbodovi.Text = bodovi.ToString();
+                if (i > 5)
+                {
+                    i = 0;
+                }
+                if (i < 1)
+                {
+                    keks.Load("ludikeks.png");
+                }
+                else if (i < 2)
+                {
+                    keks.Load("ludikeksugriz1.png");
+
+                }
+                else if (i < 3)
+                {
+                    keks.Load("ludikeksugriz2.png");
+                }
+                else if (i < 4)
+                {
+                    keks.Load("ludikeksugriz3.png");
+                }
+                else if (i < 5)
+                {
+                    keks.Load("ludikeksugriz4.png");
+                }
+                else if (i < 6)
+                {
+                    keks.Load("ludikeksugriz5.png");
+                }
+                i++;
             }
             if (nivo == 4)
             {
                 bodovi = bodovi + 15;
                 labelbodovi.Text = bodovi.ToString();
+                if (i > 5)
+                {
+                    i = 0;
+                }
+                if (i < 1)
+                {
+                    keks.Load("opasnikeks.png");
+                }
+                else if (i < 2)
+                {
+                    keks.Load("opasnikeksugriz1.png");
+
+                }
+                else if (i < 3)
+                {
+                    keks.Load("opasnikeksugriz2.png");
+                }
+                else if (i < 4)
+                {
+                    keks.Load("opasnikeksugriz3.png");
+                }
+                else if (i < 5)
+                {
+                    keks.Load("opasnikeksugriz4.png");
+                }
+                else if (i < 6)
+                {
+                    keks.Load("opasnikeksugriz5.png");
+                }
+                i++;
             }
             if (nivo == 5)
             {
@@ -144,12 +235,15 @@ namespace keksoklikernovo
 
         private void buttontrgovina_Click(object sender, EventArgs e)
         {
+            this.Hide();
             File.WriteAllText(@"bodovi.txt", "");
             StreamWriter sw = new StreamWriter("bodovi.txt", true);
             sw.WriteLine(bodovi);
             sw.Close();
             Form3 Trgovina = new Form3();
             Trgovina.ShowDialog();
+            this.Close();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -161,20 +255,31 @@ namespace keksoklikernovo
             }
             if (pekar == 2)
             {
-
+                bodovi=bodovi+5;
+                labelbodovi.Text = bodovi.ToString();
             }
             if (pekar == 3)
             {
-
+                bodovi = bodovi + 15;
+                labelbodovi.Text = bodovi.ToString();
             }
             if (pekar == 4)
             {
-
+                bodovi = bodovi + 50;
+                labelbodovi.Text = bodovi.ToString();
             }
             if (pekar == 5)
             {
 
             }
+        }
+
+        private void buttonSPREMI_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(@"bodovi.txt", "");
+            StreamWriter sw = new StreamWriter("bodovi.txt", true);
+            sw.WriteLine(bodovi);
+            sw.Close();
         }
     }
 }

@@ -37,6 +37,7 @@
             label3 = new Label();
             pbpekar = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            buttonSPREMI = new Button();
             ((System.ComponentModel.ISupportInitialize)keks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbpekar).BeginInit();
             SuspendLayout();
@@ -44,7 +45,7 @@
             // keks
             // 
             keks.Cursor = Cursors.Hand;
-            keks.Location = new Point(318, 107);
+            keks.Location = new Point(318, 95);
             keks.Name = "keks";
             keks.Size = new Size(300, 300);
             keks.TabIndex = 1;
@@ -92,7 +93,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(12, 426);
+            label1.Location = new Point(12, 410);
             label1.Name = "label1";
             label1.Size = new Size(258, 81);
             label1.TabIndex = 5;
@@ -103,7 +104,7 @@
             labelbodovi.AutoSize = true;
             labelbodovi.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
             labelbodovi.ForeColor = Color.Maroon;
-            labelbodovi.Location = new Point(276, 426);
+            labelbodovi.Location = new Point(276, 410);
             labelbodovi.Name = "labelbodovi";
             labelbodovi.Size = new Size(70, 81);
             labelbodovi.TabIndex = 6;
@@ -134,12 +135,31 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // buttonSPREMI
+            // 
+            buttonSPREMI.BackColor = Color.Bisque;
+            buttonSPREMI.BackgroundImageLayout = ImageLayout.None;
+            buttonSPREMI.Cursor = Cursors.Hand;
+            buttonSPREMI.FlatAppearance.BorderColor = Color.Maroon;
+            buttonSPREMI.FlatAppearance.BorderSize = 5;
+            buttonSPREMI.FlatStyle = FlatStyle.Flat;
+            buttonSPREMI.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSPREMI.ForeColor = Color.Maroon;
+            buttonSPREMI.Location = new Point(22, 494);
+            buttonSPREMI.Name = "buttonSPREMI";
+            buttonSPREMI.Size = new Size(290, 51);
+            buttonSPREMI.TabIndex = 9;
+            buttonSPREMI.Text = "SPREMI";
+            buttonSPREMI.UseVisualStyleBackColor = false;
+            buttonSPREMI.Click += buttonSPREMI_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(982, 603);
+            Controls.Add(buttonSPREMI);
             Controls.Add(pbpekar);
             Controls.Add(label3);
             Controls.Add(labelbodovi);
@@ -165,5 +185,6 @@
         private Label label3;
         private PictureBox pbpekar;
         private System.Windows.Forms.Timer timer1;
+        private Button buttonSPREMI;
     }
 }
