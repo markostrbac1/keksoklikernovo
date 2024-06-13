@@ -40,6 +40,8 @@
             label4 = new Label();
             label5 = new Label();
             richTextBox1 = new RichTextBox();
+            label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             listBox1.ItemHeight = 37;
             listBox1.Location = new Point(135, 49);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(362, 296);
+            listBox1.Size = new Size(309, 296);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -144,7 +146,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Maroon;
-            label3.Location = new Point(503, 9);
+            label3.Location = new Point(450, 9);
             label3.Name = "label3";
             label3.Size = new Size(91, 31);
             label3.TabIndex = 13;
@@ -166,12 +168,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Maroon;
-            label5.Location = new Point(503, 49);
+            label5.Location = new Point(450, 49);
             label5.Name = "label5";
             label5.Size = new Size(94, 38);
             label5.TabIndex = 15;
             label5.Text = "label5";
-            
             // 
             // richTextBox1
             // 
@@ -185,6 +186,28 @@
             richTextBox1.TabIndex = 16;
             richTextBox1.Text = "";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Maroon;
+            label6.Location = new Point(562, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(84, 31);
+            label6.TabIndex = 17;
+            label6.Text = "ZLATO";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Maroon;
+            label7.Location = new Point(560, 49);
+            label7.Name = "label7";
+            label7.Size = new Size(93, 38);
+            label7.TabIndex = 18;
+            label7.Text = "label7";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -192,6 +215,8 @@
             BackColor = Color.Bisque;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(982, 603);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(richTextBox1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -224,5 +249,7 @@
         private Label label4;
         private Label label5;
         private RichTextBox richTextBox1;
+        private Label label6;
+        private Label label7;
     }
 }

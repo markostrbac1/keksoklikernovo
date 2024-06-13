@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -56,6 +57,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.Location = new Point(279, 93);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(400, 300);
@@ -119,9 +121,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(638, 493);
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.BackColor = Color.Black;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.Lime;
+            textBox1.Location = new Point(444, 187);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(90, 27);
+            textBox1.Size = new Size(74, 20);
             textBox1.TabIndex = 19;
             textBox1.TextChanged += textBox1_TextChanged;
             // 

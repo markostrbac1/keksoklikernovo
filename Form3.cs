@@ -48,12 +48,12 @@ namespace keksoklikernovo
             }
             else
             {
-                
+
                 if (vrsta == "keks")
                 {
                     StreamReader sr = new StreamReader("nivo.txt", true);
                     string tnivo = sr.ReadLine();
-                    int tstnivo= int.Parse(tnivo);
+                    int tstnivo = int.Parse(tnivo);
                     sr.Close();
                     if (tstnivo >= razina)
                     {
@@ -79,10 +79,12 @@ namespace keksoklikernovo
                     string tnivo = sr.ReadLine();
                     int tstnivo = int.Parse(tnivo);
                     sr.Close();
-                    if (tstnivo >= razina) {
+                    if (tstnivo >= razina)
+                    {
                         MessageBox.Show("Ova nadogradnja je vec kupljena!");
                     }
-                    else {
+                    else
+                    {
                         MessageBox.Show("Nadogradnja kupljena!");
                         bodovi = bodovi - minus;
                         File.WriteAllText(@"bodovi.txt", "");

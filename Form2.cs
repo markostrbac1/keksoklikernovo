@@ -16,7 +16,7 @@ namespace keksoklikernovo
         int pekar;
         int bodovi;
         Random r = new Random();
-        
+
         public Form2()
         {
             InitializeComponent();
@@ -244,7 +244,7 @@ namespace keksoklikernovo
             Form3 Trgovina = new Form3();
             Trgovina.ShowDialog();
             this.Close();
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -252,10 +252,10 @@ namespace keksoklikernovo
             int rInt = r.Next(0, 300);
             if (rInt == 3)
             {
-                 
+
                 Form4 zlato = new Form4();
                 zlato.ShowDialog();
-                
+
             }
 
             if (pekar == 1)
@@ -265,7 +265,7 @@ namespace keksoklikernovo
             }
             if (pekar == 2)
             {
-                bodovi=bodovi+5;
+                bodovi = bodovi + 5;
                 labelbodovi.Text = bodovi.ToString();
             }
             if (pekar == 3)
@@ -287,10 +287,12 @@ namespace keksoklikernovo
 
         private void buttonSPREMI_Click(object sender, EventArgs e)
         {
+            this.Hide();
             File.WriteAllText(@"bodovi.txt", "");
             StreamWriter sw = new StreamWriter("bodovi.txt", true);
             sw.WriteLine(bodovi);
             sw.Close();
+            this.Close();
         }
     }
 }

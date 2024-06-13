@@ -50,8 +50,8 @@ namespace keksoklikernovo
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string rez=rezultat.ToString();
-            if (textBox1.Text == rez )
+            string rez = rezultat.ToString();
+            if (textBox1.Text == rez)
             {
                 zlato++;
                 MessageBox.Show("Sef otkljucan!");

@@ -38,6 +38,8 @@
             pbpekar = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
             buttonSPREMI = new Button();
+            label2 = new Label();
+            labelzlato = new Label();
             ((System.ComponentModel.ISupportInitialize)keks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbpekar).BeginInit();
             SuspendLayout();
@@ -145,13 +147,35 @@
             buttonSPREMI.FlatStyle = FlatStyle.Flat;
             buttonSPREMI.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSPREMI.ForeColor = Color.Maroon;
-            buttonSPREMI.Location = new Point(22, 494);
+            buttonSPREMI.Location = new Point(12, 290);
             buttonSPREMI.Name = "buttonSPREMI";
-            buttonSPREMI.Size = new Size(290, 51);
+            buttonSPREMI.Size = new Size(300, 76);
             buttonSPREMI.TabIndex = 9;
-            buttonSPREMI.Text = "SPREMI";
+            buttonSPREMI.Text = "SPREMI I ZATVORI";
             buttonSPREMI.UseVisualStyleBackColor = false;
             buttonSPREMI.Click += buttonSPREMI_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.Maroon;
+            label2.Location = new Point(12, 491);
+            label2.Name = "label2";
+            label2.Size = new Size(235, 81);
+            label2.TabIndex = 10;
+            label2.Text = "ZLATO:";
+            // 
+            // labelzlato
+            // 
+            labelzlato.AutoSize = true;
+            labelzlato.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            labelzlato.ForeColor = Color.Maroon;
+            labelzlato.Location = new Point(276, 491);
+            labelzlato.Name = "labelzlato";
+            labelzlato.Size = new Size(70, 81);
+            labelzlato.TabIndex = 11;
+            labelzlato.Text = "0";
             // 
             // Form2
             // 
@@ -159,6 +183,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(982, 603);
+            Controls.Add(labelzlato);
+            Controls.Add(label2);
             Controls.Add(buttonSPREMI);
             Controls.Add(pbpekar);
             Controls.Add(label3);
@@ -186,5 +212,7 @@
         private PictureBox pbpekar;
         private System.Windows.Forms.Timer timer1;
         private Button buttonSPREMI;
+        private Label label2;
+        private Label labelzlato;
     }
 }
