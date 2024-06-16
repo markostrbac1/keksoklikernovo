@@ -24,7 +24,7 @@ namespace keksoklikernovo
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+
             File.WriteAllText(@"bodovi.txt", "");
             StreamWriter sw = new StreamWriter("bodovi.txt", true);
             sw.WriteLine("1");

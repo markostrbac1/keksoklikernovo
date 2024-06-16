@@ -101,15 +101,15 @@ namespace keksoklikernovo
             int proslo = (int)razlika.TotalSeconds;
             if (tvornica == 1)
             {
-                bodovi = bodovi + proslo*0;
+                bodovi = bodovi + proslo * 0;
             }
             if (tvornica == 2)
             {
-                bodovi = bodovi + proslo/10;
+                bodovi = bodovi + proslo / 10;
             }
             if (tvornica == 3)
             {
-                bodovi = bodovi + proslo/5;
+                bodovi = bodovi + proslo / 5;
             }
             if (tvornica == 4)
             {

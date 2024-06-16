@@ -30,7 +30,7 @@ namespace keksoklikernovo
             string tpzlato = sr4.ReadLine();
             zlato = int.Parse(tpzlato);
             sr4.Close();
-            
+
         }
 
         private void label2_Click(object sender, EventArgs e)
