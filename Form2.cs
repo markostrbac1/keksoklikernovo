@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace keksoklikernovo
         int nivo;
         int pekar;
         int bodovi;
+        int zlato;
+        DateTime vrime;
+        int tvornica;
+        string vrimep = "vrime.txt";
         Random r = new Random();
 
         public Form2()
@@ -32,7 +37,19 @@ namespace keksoklikernovo
             string tppekar = sr3.ReadLine();
             pekar = int.Parse(tppekar);
             sr3.Close();
-            labelbodovi.Text = bodovi.ToString();
+            StreamReader sr4 = new StreamReader("zlato.txt", true);
+            string tpzlato = sr4.ReadLine();
+            zlato = int.Parse(tpzlato);
+            sr4.Close();
+            labelzlato.Text = zlato.ToString();
+            StreamReader sr5 = new StreamReader("vrime.txt", true);
+            string tpvrime = sr5.ReadLine();
+            vrime = DateTime.Parse(tpvrime);
+            sr5.Close();
+            StreamReader sr6 = new StreamReader("tvornica.txt", true);
+            string tptvornica = sr6.ReadLine();
+            tvornica = int.Parse(tptvornica);
+            sr6.Close();
             if (nivo == 1)
             {
                 keks.Load("KEKSOKLIKERTEMPLATE.png");
@@ -78,12 +95,39 @@ namespace keksoklikernovo
             {
 
             }
+
+
+            TimeSpan razlika = DateTime.Now - vrime;
+            int proslo = (int)razlika.TotalSeconds;
+            if (tvornica == 1)
+            {
+                bodovi = bodovi + proslo*0;
+            }
+            if (tvornica == 2)
+            {
+                bodovi = bodovi + proslo/10;
+            }
+            if (tvornica == 3)
+            {
+                bodovi = bodovi + proslo/5;
+            }
+            if (tvornica == 4)
+            {
+                bodovi = bodovi + proslo;
+            }
+
         }
 
 
         int i = 0;
         private void keks_Click_1(object sender, EventArgs e)
         {
+            StreamReader sr4 = new StreamReader("zlato.txt", true);
+            string tpzlato = sr4.ReadLine();
+            zlato = int.Parse(tpzlato);
+            sr4.Close();
+            labelzlato.Text = zlato.ToString();
+
 
             if (nivo == 1)
             {
@@ -241,6 +285,10 @@ namespace keksoklikernovo
             StreamWriter sw = new StreamWriter("bodovi.txt", true);
             sw.WriteLine(bodovi);
             sw.Close();
+            File.WriteAllText(@"zlato.txt", "");
+            StreamWriter sw1 = new StreamWriter("zlato.txt", true);
+            sw1.WriteLine(zlato);
+            sw1.Close();
             Form3 Trgovina = new Form3();
             Trgovina.ShowDialog();
             this.Close();
@@ -249,7 +297,7 @@ namespace keksoklikernovo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int rInt = r.Next(0, 300);
+            int rInt = r.Next(0, 200);
             if (rInt == 3)
             {
 
@@ -292,6 +340,7 @@ namespace keksoklikernovo
             StreamWriter sw = new StreamWriter("bodovi.txt", true);
             sw.WriteLine(bodovi);
             sw.Close();
+            File.WriteAllText(vrimep, DateTime.Now.ToString());
             this.Close();
         }
     }

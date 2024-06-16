@@ -37,6 +37,14 @@ namespace keksoklikernovo
             StreamWriter sw2 = new StreamWriter("pekar.txt", true);
             sw2.WriteLine("1");
             sw2.Close();
+            File.WriteAllText(@"tvornica.txt", "");
+            StreamWriter sw3 = new StreamWriter("tvornica.txt", true);
+            sw3.WriteLine("1");
+            sw3.Close();
+            File.WriteAllText(@"zlato.txt", "");
+            StreamWriter sw4 = new StreamWriter("zlato.txt", true);
+            sw4.WriteLine("0");
+            sw4.Close();
             Form2 Igra = new Form2();
             Igra.ShowDialog();
             this.Close();

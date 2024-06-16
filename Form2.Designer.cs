@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             keks = new PictureBox();
             buttontrgovina = new Button();
-            buttoninventar = new Button();
             label1 = new Label();
             labelbodovi = new Label();
             label3 = new Label();
@@ -72,23 +71,6 @@
             buttontrgovina.Text = "TRGOVINA";
             buttontrgovina.UseVisualStyleBackColor = false;
             buttontrgovina.Click += buttontrgovina_Click;
-            // 
-            // buttoninventar
-            // 
-            buttoninventar.BackColor = Color.Bisque;
-            buttoninventar.BackgroundImageLayout = ImageLayout.None;
-            buttoninventar.Cursor = Cursors.Hand;
-            buttoninventar.FlatAppearance.BorderColor = Color.Maroon;
-            buttoninventar.FlatAppearance.BorderSize = 5;
-            buttoninventar.FlatStyle = FlatStyle.Flat;
-            buttoninventar.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            buttoninventar.ForeColor = Color.Maroon;
-            buttoninventar.Location = new Point(12, 193);
-            buttoninventar.Name = "buttoninventar";
-            buttoninventar.Size = new Size(300, 75);
-            buttoninventar.TabIndex = 4;
-            buttoninventar.Text = "INVENTAR";
-            buttoninventar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -147,7 +129,7 @@
             buttonSPREMI.FlatStyle = FlatStyle.Flat;
             buttonSPREMI.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSPREMI.ForeColor = Color.Maroon;
-            buttonSPREMI.Location = new Point(12, 290);
+            buttonSPREMI.Location = new Point(12, 195);
             buttonSPREMI.Name = "buttonSPREMI";
             buttonSPREMI.Size = new Size(300, 76);
             buttonSPREMI.TabIndex = 9;
@@ -190,7 +172,6 @@
             Controls.Add(label3);
             Controls.Add(labelbodovi);
             Controls.Add(label1);
-            Controls.Add(buttoninventar);
             Controls.Add(buttontrgovina);
             Controls.Add(keks);
             Name = "Form2";
@@ -205,7 +186,6 @@
 
         private PictureBox keks;
         private Button buttontrgovina;
-        private Button buttoninventar;
         private Label label1;
         private Label labelbodovi;
         private Label label3;

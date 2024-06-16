@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace keksoklikernovo
 {
@@ -20,6 +21,7 @@ namespace keksoklikernovo
         int bodovi;
         string vrsta;
         int razina;
+        int zlato;
         List<string> stringList = new List<string>();
         public Form3()
         {
@@ -36,15 +38,25 @@ namespace keksoklikernovo
             string tppekar = sr3.ReadLine();
             pekar = int.Parse(tppekar);
             sr3.Close();
+            StreamReader sr4 = new StreamReader("zlato.txt", true);
+            string tpzlato = sr4.ReadLine();
+            zlato = int.Parse(tpzlato);
+            sr4.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string cijena = label5.Text;
+            string cijenaz = label7.Text;
             int minus = int.Parse(cijena);
+            int minusz = int.Parse(cijenaz);
             if (minus > bodovi)
             {
                 MessageBox.Show("Nemate dovoljno novca!");
+            }
+            else if (minusz > zlato)
+            {
+                MessageBox.Show("Nemate dovoljno zlata!");
             }
             else
             {
@@ -71,6 +83,11 @@ namespace keksoklikernovo
                         StreamWriter sw1 = new StreamWriter("nivo.txt", true);
                         sw1.WriteLine(razina);
                         sw1.Close();
+                        zlato = zlato - minusz;
+                        File.WriteAllText(@"zlato.txt", "");
+                        StreamWriter sw2 = new StreamWriter("zlato.txt", true);
+                        sw2.WriteLine(zlato);
+                        sw2.Close();
                     }
                 }
                 else if (vrsta == "pekar")
@@ -95,6 +112,41 @@ namespace keksoklikernovo
                         StreamWriter sw1 = new StreamWriter("pekar.txt", true);
                         sw1.WriteLine(razina);
                         sw1.Close();
+                        zlato = zlato - minusz;
+                        File.WriteAllText(@"zlato.txt", "");
+                        StreamWriter sw2 = new StreamWriter("zlato.txt", true);
+                        sw2.WriteLine(zlato);
+                        sw2.Close();
+                    }
+
+                }
+                else if (vrsta == "tvornica")
+                {
+                    StreamReader sr = new StreamReader("tvornica.txt", true);
+                    string tnivo = sr.ReadLine();
+                    int tstnivo = int.Parse(tnivo);
+                    sr.Close();
+                    if (tstnivo >= razina)
+                    {
+                        MessageBox.Show("Ova nadogradnja je vec kupljena!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nadogradnja kupljena!");
+                        bodovi = bodovi - minus;
+                        File.WriteAllText(@"bodovi.txt", "");
+                        StreamWriter sw = new StreamWriter("bodovi.txt", true);
+                        sw.WriteLine(bodovi);
+                        sw.Close();
+                        File.WriteAllText(@"tvornica.txt", "");
+                        StreamWriter sw1 = new StreamWriter("tvornica.txt", true);
+                        sw1.WriteLine(razina);
+                        sw1.Close();
+                        zlato = zlato - minusz;
+                        File.WriteAllText(@"zlato.txt", "");
+                        StreamWriter sw2 = new StreamWriter("zlato.txt", true);
+                        sw2.WriteLine(zlato);
+                        sw2.Close();
                     }
 
                 }
@@ -163,6 +215,21 @@ namespace keksoklikernovo
                 listBox1.DataSource = stringList1;
                 sr.Close();
             }
+            if (listBox3.SelectedItem.ToString() == "tvornice")
+            {
+                StreamReader sr = new StreamReader("tvornice.txt");
+                string line = sr.ReadLine();
+                List<string> stringList1 = new List<string>();
+
+                while (line != null)
+                {
+                    stringList1.Add(line);
+                    line = sr.ReadLine();
+                }
+
+                listBox1.DataSource = stringList1;
+                sr.Close();
+            }
 
         }
 
@@ -185,7 +252,8 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
-
+                    string zlato = lin[5];
+                    label7.Text = zlato;
                 }
                 sr.Close();
             }
@@ -206,6 +274,8 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
 
                 }
                 sr.Close();
@@ -227,6 +297,8 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
 
                 }
 
@@ -249,6 +321,8 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
 
                 }
 
@@ -271,12 +345,14 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
 
                 }
 
                 sr.Close();
             }
-            if (listBox1.SelectedItem.ToString() == "genetski optimizirani pekar")
+            if (listBox1.SelectedItem.ToString() == "terminator")
             {
                 StreamReader sr = new StreamReader("optimizirani.txt", true);
                 string linija = sr.ReadLine();
@@ -293,9 +369,77 @@ namespace keksoklikernovo
                     pictureBox1.Load(path);
                     vrsta = lin[3];
                     razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
 
                 }
 
+                sr.Close();
+            }
+            if (listBox1.SelectedItem.ToString() == "jednostavna tvornica")
+            {
+                StreamReader sr = new StreamReader("jednostavna.txt", true);
+                string linija = sr.ReadLine();
+
+                while (linija != null)
+                {
+                    string[] lin = linija.Split('|');
+                    string cijena = lin[0];
+                    string opis = lin[1];
+                    string path = lin[2];
+                    label5.Text = cijena;
+                    richTextBox1.Text = opis;
+                    linija = sr.ReadLine();
+                    pictureBox1.Load(path);
+                    vrsta = lin[3];
+                    razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
+                }
+                sr.Close();
+            }
+            if (listBox1.SelectedItem.ToString() == "teska industrija")
+            {
+                StreamReader sr = new StreamReader("teska.txt", true);
+                string linija = sr.ReadLine();
+
+                while (linija != null)
+                {
+                    string[] lin = linija.Split('|');
+                    string cijena = lin[0];
+                    string opis = lin[1];
+                    string path = lin[2];
+                    label5.Text = cijena;
+                    richTextBox1.Text = opis;
+                    linija = sr.ReadLine();
+                    pictureBox1.Load(path);
+                    vrsta = lin[3];
+                    razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
+                }
+                sr.Close();
+            }
+            if (listBox1.SelectedItem.ToString() == "monopol nad industrijom")
+            {
+                StreamReader sr = new StreamReader("monopol.txt", true);
+                string linija = sr.ReadLine();
+
+                while (linija != null)
+                {
+                    string[] lin = linija.Split('|');
+                    string cijena = lin[0];
+                    string opis = lin[1];
+                    string path = lin[2];
+                    label5.Text = cijena;
+                    richTextBox1.Text = opis;
+                    linija = sr.ReadLine();
+                    pictureBox1.Load(path);
+                    vrsta = lin[3];
+                    razina = int.Parse(lin[4]);
+                    string zlato = lin[5];
+                    label7.Text = zlato;
+                }
                 sr.Close();
             }
 

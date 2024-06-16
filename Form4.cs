@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace keksoklikernovo
 {
@@ -25,7 +26,11 @@ namespace keksoklikernovo
             label2.Text = rInt.ToString();
             label4.Text = rInt2.ToString();
             rezultat = rInt2 * rInt;
-
+            StreamReader sr4 = new StreamReader("zlato.txt", true);
+            string tpzlato = sr4.ReadLine();
+            zlato = int.Parse(tpzlato);
+            sr4.Close();
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -55,7 +60,12 @@ namespace keksoklikernovo
             {
                 zlato++;
                 MessageBox.Show("Sef otkljucan!");
+                File.WriteAllText(@"zlato.txt", "");
+                StreamWriter sw1 = new StreamWriter("zlato.txt", true);
+                sw1.WriteLine(zlato);
+                sw1.Close();
                 this.Close();
+
             }
         }
     }
